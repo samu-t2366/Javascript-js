@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Light Bill Calulation</h1>
+<script>
+    var bill;
+    var total;
+    var units=prompt("Enter the units")
+    if(units<=100)
+{
+    bill=units*2
+    console.log(bill)
+    
+}
+else if(units>=100)
+{
+    bill=(100*2)+((units-100)*3)
+    console.log(bill)
+    
+}
+else
+{
+    bill=(100*2)+(100*3)+((units-200)*5)
+    console.log(bill);    
+}
+
+</script>    
+</body>
+</html>

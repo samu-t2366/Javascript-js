@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>max Between 3 Numbers</h1>
+<script>
+    var a=Number(prompt("Enter the first number"));
+    var b=Number(prompt("Enter the second number"));
+    var c=Number(prompt("Enter the third number"));
+    ((a > b && a < c) || (a > b && a > c))? console.log("A is Middle")
+        : ((b > a && b < c) || (b < a && b > c))? console.log("B is Middle")
+            : console.log("c is Middle"); 
+    
+</script>    
+</body>
+</html>

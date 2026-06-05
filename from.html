@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Checker</title>
+</head>
+<body>
+    <h1>...Password Checker...</h1>
+
+    <script>
+        var pass = prompt("Enter the Password");
+
+        console.log(/[0-9]/.test(pass), "Enter Digit");
+        console.log(/[A-Z]/.test(pass), "Enter One Uppercase Letter");
+        console.log(/[@#$*]/.test(pass), "Enter Special Symbol");
+        console.log(pass.length = 8, "Enter Length Must Be At Least 8");
+
+        (/[0-9]/.test(pass) &&/[A-Z]/.test(pass) && /[@#$*]/.test(pass) && pass.length >= 8)
+            ? console.log("Login Successful"): console.log("Invalid Password");
+    </script>
+</body>
+</html>

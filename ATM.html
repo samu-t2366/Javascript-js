@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>...ATM....</h1>
+<script>
+    var Balance=Number(prompt("Enter the balance"))
+    var ch=Number(prompt("Enter the choice.....\n1.check balance\n2.withdraw\n3.Deposit\n4.Exit"))
+    
+    switch(ch)
+    {
+        case 1:
+            document.write("Enter your Balance",1000)
+            break;
+        case 2:
+            var wd=prompt("Enter the withdraw amount")
+            if(wd>0&&wd<Balance)
+            {
+                document.write(wd,"withdraw is successfully")
+                document.write("Available Balance")
+            }
+            else
+
+
+    }
+</script>    
+</body>
+</html>
