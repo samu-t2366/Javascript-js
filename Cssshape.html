@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Shapes</title>
+<style>
+body{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:20px;
+    background:#eee;
+}
+
+.shape{
+    color:white;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    line-height:150px;
+}
+
+/* Leaf */
+.leaf{
+    width:150px;
+    height:150px;
+    background:deepskyblue;
+    border-radius:0 100% 0 100%;
+}
+
+/* Half Oval */
+.halfoval{
+    width:250px;
+    height:150px;
+    background:blue;
+    border-radius:0 0 150px 150px;
+}
+
+/* Oval */
+.oval{
+    width:250px;
+    height:150px;
+    background:orange;
+    border-radius:50%;
+}
+
+/* Twist */
+.twist{
+    width:250px;
+    height:120px;
+    background:green;
+    border-radius:0 100% 0 100%;
+    transform:skewX(20deg);
+}
+
+/* Twist Two */
+.twist2{
+    width:250px;
+    height:120px;
+    background:purple;
+    border-radius:0 100px 0 100px;
+}
+
+/* Circle */
+.circle{
+    width:150px;
+    height:150px;
+    background:magenta;
+    border-radius:50%;
+}
+
+/* Tab */
+.tab{
+    width:150px;
+    height:180px;
+    background:deepskyblue;
+    border-radius:0 0 80px 80px;
+}
+
+/* Three Sided */
+.threesided{
+    width:150px;
+    height:180px;
+    background:blue;
+    border-radius:0 80px 80px 80px;
+}
+</style>
+</head>
+<body>
+
+<div class="shape leaf">Leaf</div>
+<div class="shape halfoval">Half Oval</div>
+<div class="shape oval">Oval</div>
+<div class="shape twist">Twist</div>
+<div class="shape twist2">Twist Two</div>
+<div class="shape circle">Circle</div>
+<div class="shape tab">Tab</div>
+<div class="shape threesided">Three Sided</div>
+
+</body>
+</html>

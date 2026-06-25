@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hollow Square Pattern</title>
+</head>
+<body>
+
+<pre id="output"></pre>
+
+<script>
+var n = 6;
+var pattern = "";
+
+for (var i = 1; i <= n; i++) {
+    for (var j = 1; j <= n; j++) {
+        if (i == 1 || i == n || j == 1 || j == n) {
+            pattern += "*";
+        } else {
+            pattern += " ";
+        }
+    }
+    pattern += "\n";
+}
+
+document.getElementById("output").textContent = pattern;
+</script>
+
+</body>
+</html>

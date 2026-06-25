@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with OTP</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(135deg, #cf19a2, #f104aa);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            background:#b513bb;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.2);
+            width:350px;
+            text-align:center;
+        }
+
+        h2{
+            margin-bottom:20px;
+            color:#333;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin:8px 0;
+            border:1px solid #ccc;
+            border-radius:8px;
+            outline:none;
+            font-size:15px;
+        }
+
+        input:focus{
+            border-color:#4facfe;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            margin-top:10px;
+            border:none;
+            border-radius:8px;
+            background:#e470b3;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#9c0929;
+        }
+
+        #otpSection{
+            display:none;
+            margin-top:20px;
+        }
+
+        #timer{
+            color:red;
+            font-weight:bold;
+        }
+
+        p{
+            margin-top:10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h2>Login Form</h2>
+
+        <input type="text" id="user" placeholder="Enter Username">
+
+        <input type="password" id="pass" placeholder="Enter Password">
+
+        <input type="tel" id="mobile" placeholder="Enter Mobile Number">
+
+        <button onclick="login()">Login</button>
+
+        <div id="otpSection">
+            <h3>Enter OTP</h3>
+
+            <input type="text" id="otpInput" placeholder="Enter OTP">
+
+            <button onclick="verifyOTP()">Verify OTP</button>
+
+            <p>Time Left: <span id="timer">01:00</span></p>
+        </div>
+
+    </div>
+
+    <script>
+
+        let username = "Trisha";
+        let password = "Trisha@2366";
+
+        let generatedOTP;
+        let timeLeft = 60;
+        let timer;
+
+        function login() {
+
+            let user = document.getElementById("user").value;
+            let pass = document.getElementById("pass").value;
+            let mobile = document.getElementById("mobile").value;
+
+        
+            if(!/^[0-9]{10}$/.test(mobile)){
+                alert("Please enter a valid 10-digit mobile number");
+                return;
+            }
+
+            if(user === username && pass === password){
+
+                alert("Login Successful");
+
+                generatedOTP = Math.floor(1000 + Math.random() * 9000);
+
+                
+                alert("OTP sent to " + mobile + "\nOTP: " + generatedOTP);
+
+                document.getElementById("otpSection").style.display = "block";
+
+                startTimer();
+
+            } else {
+                alert("Incorrect Username or Password");
+            }
+        }
+
+        function startTimer(){
+
+            timeLeft = 60;
+
+            clearInterval(timer);
+
+            timer = setInterval(function(){
+
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+
+                document.getElementById("timer").innerHTML =
+                    String(minutes).padStart(2,'0') + ":" +
+                    String(seconds).padStart(2,'0');
+
+                if(timeLeft <= 0){
+                    clearInterval(timer);
+                    alert("OTP Expired!");
+                    generatedOTP = null;
+                }
+
+                timeLeft--;
+
+            },1000);
+        }
+
+        function verifyOTP(){
+
+            let enteredOTP = document.getElementById("otpInput").value;
+
+            if(generatedOTP == null){
+                alert("OTP Expired. Please Login Again.");
+            }
+            else if(enteredOTP == generatedOTP){
+                clearInterval(timer);
+                alert("OTP Verified Successfully");
+            }
+            else{
+                alert("Invalid OTP");
+            }
+        }
+
+    </script>
+
+</body>
+</html>

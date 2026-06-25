@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+let empno = prompt("Enter Employee Number:");
+let empname = prompt("Enter Employee Name:");
+let time = parseFloat(prompt("Enter Time (e.g. 10.30, 14.30, 22.00):"));
+
+document.write("Employee No : " + empno + "<br>");
+document.write("Employee Name : " + empname + "<br>");
+document.write("Time : " + time + "<br><br>");
+
+if(time < 12)
+    document.write("Hello " + empname + ", Good Morning");
+else if(time < 17)
+    document.write("Hello " + empname + ", Good Afternoon");
+else if(time < 21)
+    document.write("Hello " + empname + ", Good Evening");
+else
+    document.write("Hello " + empname + ", Good Night");
+
+</script>
+
+</body>
+</html>

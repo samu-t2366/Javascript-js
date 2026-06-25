@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+</head>
+<body>
+
+    <h2>Login Form</h2>
+
+    Username:
+    <input type="text" id="username"><br><br>
+
+    Password:
+    <input type="password" id="password"><br><br>
+
+    <button onclick="login()">Login</button>
+
+    <p id="result"></p>
+
+    <script>
+        let attempts = 3;
+
+        function login() {
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+
+            let correctUser = "Samuu";
+            let correctPass = "t2366";
+
+            if (user === correctUser && pass === correctPass) {
+                document.getElementById("result").innerHTML =
+                    "Login Successful!";
+            } else {
+                attempts--;
+
+                if (attempts > 0) {
+                    document.getElementById("result").innerHTML =
+                        "Invalid Username or Password. Attempts left: " + attempts;
+                } else {
+                    document.getElementById("result").innerHTML =
+                        "Account Locked! No attempts left.";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

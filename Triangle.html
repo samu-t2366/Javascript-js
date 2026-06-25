@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  
+  <pre id="output"></pre>
+
+  <script>
+    let rows = 5;
+    let pattern = "";
+
+    // For loop to handle rows
+    for (let i = 1; i <= rows; i++) {
+      
+      // For loop to add spaces
+      for (let j = 1; j <= rows - i; j++) {
+        pattern += " ";
+      }
+      
+      // For loop to add stars
+      for (let k = 1; k <= i; k++) {
+        pattern += "* ";
+      }
+      
+      // Move to the next line
+      pattern += "\n";
+    }
+
+    // Print the result to the HTML element
+    document.getElementById("output").innerHTML = pattern;
+  </script>
+
+</body>
+</html>

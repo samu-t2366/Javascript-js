@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          body {
+      font-family: Arial, sans-serif;
+    }
+
+    #searchBar {
+      margin-bottom: 20px;
+      padding: 8px 12px;
+      width: 280px;
+      font-size: 16px;
+    }
+
+    #productContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .product {
+      border: 1px solid #e216b6;
+      padding: 15px;
+      border-radius: 8px;
+      width: 220px;
+      background: #d86da2;
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .product button {
+      margin-top: 10px;
+      padding: 6px 10px;
+      cursor: pointer;
+      background: #2196f3;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+    }
+   #lowHighBtn,
+   #
+   {
+
+   }
+    </style>
+</head>
+<body>
+    <h1>Amazon Lite</h1>
+    <input type="text" name="" id="searchBar" placeholder="Search Here....">
+    <div id="productContainer" class="productContainer"></div>
+    <button id="lowHighBtn">Low to High</button>
+    <button id="HighLowBtn">High to Low</button>
+    <script>
+        let container=document.getElementById("productContainer")
+        let search=document.getElementById("searchBar")
+
+        let product = [
+        {
+            pname:"Lipstick",
+            cname:"Lakme",
+            price:600,
+            img:"https://th.bing.com/th/id/OIP.i-hmWOevLOtYL0Khxq5ewQHaHa?w=192&h=192&c=7&r=0&o=7&pid=1.7&rm=3"
+        },
+        {
+            pname:"Foundation",
+            cname:"MAC",
+            price:1000,
+            img:"https://th.bing.com/th/id/OIP.lGHu8WGoXtK1_zyWt_8GpAHaEK?w=275&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+        },
+        {
+            pname:"Mascara",
+            cname:"MARS",
+            price:4500,
+            img:"https://th.bing.com/th/id/OIP.vEUNprwHV-EL_4M8yKKlDAHaHa?w=154&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+        },
+        {
+            pname:"Blush",
+            cname:"Nykaa",
+            price:800,
+            img:"https://th.bing.com/th/id/OIP.Vp1lbEQyrEbURyt6eao9DwHaHa?w=150&h=150&c=6&o=7&pid=1.7&rm=3"
+        },
+        {
+            pname:"Kajal",
+            cname:"Plum Godlness",
+            price:500,
+            img:"https://th.bing.com/th/id/OIP.aHMc66__lQeu2OOIkA15qwHaHa?w=156&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+        }, 
+        {
+            pname:"Eyeshadow",
+            cname:"NARS",
+            price:700,
+            img:"https://png.pngtree.com/png-clipart/20230425/original/pngtree-eyeshadow-palette-makeup-eye-makeup-color-png-image_9099962.png"
+        }, 
+        {
+            pname:"Lipliner",
+            cname:"SugarPop",
+            price:200,
+            img:"data:image/webp;base64,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"
+        },
+        {
+            pname:"NailPolish",
+            cname:"Debelle",
+            price:100,
+            img:"https://cdn.fcglcdn.com/brainbees/images/products/583x720/19936327a.webp"
+        },
+        {
+             pname:"Primer",
+            cname:"EIF",
+            price:1200,
+            img:"https://th.bing.com/th/id/OIP.Pv9dSe68aQwjMqyBUx00EwHaHa?w=192&h=192&c=7&r=0&o=7&pid=1.7&rm=3"
+        },
+        {
+            
+            pname:"Moisturize",
+            cname:"joy",
+            price:50,
+            img:"https://cdn.fcglcdn.com/brainbees/images/products/583x720/18542696a.webp"
+        }
+        ];
+        function display(list)
+        {
+            container.innerHTML="";
+            
+
+            list.forEach((product)=> {
+                let div=document.createElement("div")
+                div.className="product";
+                div.innerHTML=`
+                <img src="${product.img}" alt=""   />
+                <h3>${product.pname}</h3>
+                <p>${product.cname}</p>
+                <p><strong>${product.price}</strong></p>
+                <button onclick="">Buy Now</button> `        
+               ;
+               container.appendChild(div);
+        });
+    }
+        search.addEventListener("input",()=>
+        {
+            let searchval=search.value.toLowerCase();
+            let filtered=product.filter((pr)=>
+            {
+                return pr.pname.toLowerCase().includes(searchval)
+            
+        });
+        display(filtered)
+    });
+    document.getElementById("lowHighBtn").addEventListener("click", ()=>
+    {
+        let sortedProducts=[...product];
+        sortedProducts.sort((a,b)=>a.price-b.price);
+        display(sortedProducts);
+    });
+    document.getElementById("HighLowBtn").addEventListener("click", ()=>
+    {
+        let sortedProducts=[...product];
+        sortedProducts.sort((a,b)=>b.price-a.price);
+        display(sortedProducts);
+    });
+    display(product);
+    </script>
+</body>
+</html>

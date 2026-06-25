@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-decoration-line: line-through;">To Do App</h1>
+    <input type="text" name="" id="todo" placeholder="Enter A Task">
+    <button onclick="addTodo()">Add ToDo</button>
+    <ul id="todolist"></ul>
+    <script>
+        let arr=[];
+       let task= document.getElementById("todo")
+       let list=document.getElementById("todolist");
+      function addTodo() {
+         arr.push(task.value);
+         console.log(arr);
+         renderTodo();
+      }
+      function renderTodo() {
+          list.innerHTML=""
+        arr.forEach((val)=>{
+              list.innerHTML+="<li>"+val+"</li><button>Delete</button><button>Update</button>"
+        })
+      }
+    </script>
+</body>
+</html>

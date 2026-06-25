@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+  <pre id="output" style="font-family: monospace; font-size: 20px;"></pre>
+
+  <script>
+    let n = 5; // Controls the size of the hourglass
+    let pattern = "";
+
+    // 1. TOP HALF OF THE HOURGLASS
+    for (let i = n; i >= 1; i--) {
+      // Spaces before the stars
+      for (let j = 1; j <= n - i; j++) {
+        pattern += " ";
+      }
+      // Inner logic for hollow stars
+      for (let k = 1; k <= (2 * i - 1); k++) {
+
+        if (i === n || k === 1 || k === (2 * i - 1)) {
+          pattern += "*";
+        } else {
+          pattern += " ";
+        }
+      }
+      pattern += "\n";
+    }
+
+    // 2. BOTTOM HALF OF THE HOURGLASS
+    for (let i = 2; i <= n; i++) {
+      // Spaces before the stars
+      for (let j = 1; j <= n - i; j++) {
+        pattern += " ";
+      }
+      // Inner logic for hollow stars
+      for (let k = 1; k <= (2 * i - 1); k++) {
+        // Print star only at borders (bottom row, first position, last position)
+        if (i === n || k === 1 || k === (2 * i - 1)) {
+          pattern += "*";
+        } else {
+          pattern += " ";
+        }
+      }
+      pattern += "\n";
+    }
+
+    // Output the completed string to the screen
+    document.getElementById("output").innerHTML = pattern;
+  </script>
+
+</body>
+</html>

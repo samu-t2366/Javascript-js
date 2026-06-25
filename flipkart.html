@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flipkart Login</title>
+
+<style>
+body{
+    margin:0;
+    background:#f1f3f6;
+    font-family:Arial, sans-serif;
+}
+
+.container{
+    width:900px;
+    height:500px;
+    background:white;
+    margin:50px auto;
+    display:flex;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.left{
+    width:35%;
+    background:#2874f0;
+    color:white;
+    padding:40px 30px;
+    box-sizing:border-box;
+}
+
+.left h1{
+    margin:0;
+    font-size:40px;
+}
+
+.left p{
+    margin-top:20px;
+    font-size:22px;
+    line-height:35px;
+    color:#dbdbdb;
+}
+
+.left img{
+    width:220px;
+    margin-top:150px;
+}
+
+.right{
+    width:65%;
+    padding:40px;
+    box-sizing:border-box;
+    position:relative;
+}
+
+input{
+    width:100%;
+    border:none;
+    border-bottom:2px solid #2874f0;
+    outline:none;
+    padding:10px 0;
+    font-size:18px;
+}
+
+.terms{
+    margin-top:50px;
+    color:gray;
+    font-size:14px;
+}
+
+button{
+    width:100%;
+    background:#fb641b;
+    color:white;
+    border:none;
+    padding:15px;
+    font-size:20px;
+    margin-top:30px;
+    cursor:pointer;
+}
+
+.signup{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#2874f0;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <h1>Login</h1>
+
+        <p>
+            Get access to your Orders,<br>
+            Wishlist and Recommendations
+        </p>
+
+        <img src="https://static-assets-web.flixcart.com/www/promos/new/20150528-140547-login.png">
+    </div>
+
+    <div class="right">
+
+        <input type="text"
+        placeholder="Enter Email/Mobile number">
+
+        <div class="terms">
+            By continuing, you agree to Flipkart's
+            Terms of Use and Privacy Policy.
+        </div>
+
+        <button>Request OTP</button>
+
+        <div class="signup">
+            New to Flipkart? Create an account
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
