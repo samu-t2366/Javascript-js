@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#f2f2f2;
+}
+
+.face{
+    width:250px;
+    height:250px;
+    background:yellow;
+    border-radius:50%;
+    position:relative;
+}
+
+.eye{
+    width:50px;
+    height:50px;
+    background:white;
+    border-radius:50%;
+    position:absolute;
+    top:70px;
+}
+
+.left-eye{
+    left:50px;
+}
+
+.right-eye{
+    right:50px;
+}
+
+.pupil{
+    width:18px;
+    height:18px;
+    background:black;
+    border-radius:50%;
+    position:absolute;
+    top:16px;
+    left:16px;
+    transition:0.1s;
+}
+
+.mouth{
+    width:90px;
+    height:20px;
+    background:#d9534f;
+    position:absolute;
+    bottom:60px;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:0 0 50px 50px;
+    transition:0.5s;
+}
+
+.face:hover .mouth{
+    height:50px;
+    border-radius:0 0 100px 100px;
+}
+</style>
+</head>
+<body>
+
+<div class="face">
+    <div class="eye left-eye">
+        <div class="pupil"></div>
+    </div>
+
+    <div class="eye right-eye">
+        <div class="pupil"></div>
+    </div>
+
+    <div class="mouth"></div>
+</div>
+
+<script>
+document.addEventListener("mousemove", (e) => {
+
+    document.querySelectorAll(".eye").forEach(eye => {
+
+        const rect = eye.getBoundingClientRect();
+
+        const eyeX = rect.left + rect.width/2;
+        const eyeY = rect.top + rect.height/2;
+
+        const angle = Math.atan2(
+            e.clientY - eyeY,
+            e.clientX - eyeX
+        );
+
+        const x = Math.cos(angle) * 10;
+        const y = Math.sin(angle) * 10;
+
+        eye.querySelector(".pupil").style.transform =
+            `translate(${x}px, ${y}px)`;
+    });
+});
+</script>
+
+</body>
+</html>

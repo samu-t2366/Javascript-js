@@ -1,0 +1,77 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometric Flower Spiral</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #bbf2c3; /* Minty green screen color */
+            overflow: hidden;
+        }
+
+        /* The initial canvas container sets the 45-degree diamond starting point */
+        .canvas {
+            width: 500px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(45deg);
+        }
+
+        /* - Changing width/height to 91% tightens up the lines.
+           - border-radius: 12px softens the square corners. 
+           - When nested 30 times, these slightly rounded edges compound 
+             to form a perfect curved flower/vortex.
+        */
+        .square {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 91%;
+            height: 91%;
+            border: 2px solid #143d1a; /* Clean forest green/black strokes */
+            border-radius: 12px;       /* Crucial step to turn squares into a flower */
+            box-sizing: border-box;
+            
+            /* Smoothly twists from a flat starburst shape into the flower bloom */
+            animation: flowerTwist 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes flowerTwist {
+            0% {
+                transform: rotate(9deg);
+            }
+            100% {
+                transform: rotate(21.5deg); /* The perfect mathematical angle for 91% scaling */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="canvas">
+        <div class="square"><div class="square"><div class="square"><div class="square"><div class="square">
+        <div class="square"><div class="square"><div class="square"><div class="square"><div class="square">
+        <div class="square"><div class="square"><div class="square"><div class="square"><div class="square">
+        <div class="square"><div class="square"><div class="square"><div class="square"><div class="square">
+        <div class="square"><div class="square"><div class="square"><div class="square"><div class="square">
+        <div class="square"><div class="square"><div class="square"><div class="square"><div class="square">
+            </div></div></div></div></div>
+        </div></div></div></div></div>
+        </div></div></div></div></div>
+        </div></div></div></div></div>
+        </div></div></div></div></div>
+        </div></div></div></div></div>
+    </div>
+
+</body>
+</html>
